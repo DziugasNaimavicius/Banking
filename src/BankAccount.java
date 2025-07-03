@@ -1,12 +1,42 @@
-import java.util.Scanner;
-
 public class BankAccount {
     private double balance;
+    private String user;
+    private String password;
 
     public BankAccount() {}
 
     public BankAccount(double balance) {
         this.balance = balance;
+    }
+
+    public BankAccount(double balance, String user, String password) {
+        this.balance = balance;
+        this.user = user;
+        this.password = password;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public double deposit(double amount) {
@@ -25,34 +55,5 @@ public class BankAccount {
 
     public void printBalance() {
         System.out.println("Current balance: " + balance);
-    }
-
-    public static void main(String[] args) {
-        double balance = 10;
-        BankAccount account = new BankAccount(balance);
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println("For deposit press - 1, for withdraw press - 2, for showing balance press - 3");
-
-        int temp = sc.nextInt();
-
-        switch (temp) {
-            case 1:
-                System.out.println("Enter the amount to deposit:");
-                double depositAmount = sc.nextDouble();
-                balance = account.deposit(depositAmount);
-                System.out.println("Balance after deposit: " + balance);
-                break;
-            case 2:
-                System.out.println("Enter the amount to withdraw:");
-                double withdrawAmount = sc.nextDouble();
-                balance = account.withdraw(withdrawAmount);
-                System.out.println("Balance after withdrawal: " + balance);
-                break;
-            case 3:
-                account.printBalance();
-                break;
-        }
-        sc.close();
     }
 }
