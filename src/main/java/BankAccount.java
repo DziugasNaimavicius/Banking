@@ -1,7 +1,9 @@
 public class BankAccount {
-    private double balance;
+    private int accountNumber;
     private String user;
     private String password;
+    private double balance;
+    private String currency;
 
     public BankAccount() {}
 
@@ -9,10 +11,15 @@ public class BankAccount {
         this.balance = balance;
     }
 
-    public BankAccount(double balance, String user, String password) {
+    public BankAccount(int accountNumber,double balance, String user, String password) {
+        this.accountNumber = accountNumber;
         this.balance = balance;
         this.user = user;
         this.password = password;
+    }
+
+    public int getAccountNumber() {
+        return accountNumber;
     }
 
     public double getBalance() {
@@ -27,6 +34,10 @@ public class BankAccount {
         return password;
     }
 
+    public void setAccountNumber(int accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
     public void setBalance(double balance) {
         this.balance = balance;
     }
@@ -37,23 +48,5 @@ public class BankAccount {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public double deposit(double amount) {
-        balance += amount;
-        return balance;
-    }
-
-    public double withdraw(double amount) {
-        if (amount > balance) {
-            System.out.println("Not enough money in your bank :( !");
-            return balance;
-        }
-        balance -= amount;
-        return balance;
-    }
-
-    public void printBalance() {
-        System.out.println("Current balance: " + balance);
     }
 }
